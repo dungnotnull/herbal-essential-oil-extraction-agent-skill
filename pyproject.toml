@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "herbal-oil-skill"
+version = "2.0.0"
+description = "Production-grade skill-registry framework for Essential Oil Extraction & Aromatic Chemistry analysis."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Skill 289 Contributors"}]
+keywords = ["essential-oil", "aromatic-chemistry", "extraction", "skill-registry", "agent", "claude-code"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "requests>=2.31.0",
+    "feedparser>=6.0.10",
+    "python-dateutil>=2.8.2",
+]
+
+[project.optional-dependencies]
+crawl = ["crawl4ai>=0.3.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+herbal-oil = "scripts.run_pipeline:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["herbal_oil", "herbal_oil.core", "herbal_oil.agents", "herbal_oil.tools", "herbal_oil.hooks"]
+
+[tool.herbal_oil]
+# Runtime configuration consumed by config/settings.py. Environment variables
+# take precedence; these are defaults.
+[tool.herbal_oil.llm]
+provider = "claude"
+model = "claude-sonnet-4-5"
+temperature = 0.2

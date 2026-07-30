@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://herbal-oil.skill/schemas/advisor.schema.json",
+  "title": "AdvisorConclusion",
+  "description": "Output of the advisor agent (Step 5).",
+  "type": "object",
+  "required": ["verdict", "disclosure", "key_risks"],
+  "additionalProperties": true,
+  "properties": {
+    "verdict": {"type": "string", "enum": ["Optimal Extraction", "Conditional (thermal)", "Yield/Aroma Loss", "Inconclusive"]},
+    "summary": {"type": "string"},
+    "disclosure": {"type": "string", "minLength": 1},
+    "scenarios": {"type": "object"},
+    "key_risks": {"type": "array", "items": {"type": "string"}, "minItems": 3},
+    "evidence_chain": {"type": "array", "items": {"type": "string"}},
+    "remediation": {"type": "array", "items": {"type": "string"}}
+  }
+}

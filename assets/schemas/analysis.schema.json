@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://herbal-oil.skill/schemas/analysis.schema.json",
+  "title": "CoreAnalysis",
+  "description": "Output of the core-analysis agent (Step 3).",
+  "type": "object",
+  "required": ["herb", "method", "parameters", "aroma_preservation", "standardization"],
+  "additionalProperties": false,
+  "properties": {
+    "herb": {"type": "string"},
+    "method": {"type": "string", "enum": ["steam", "hydro", "sfe_co2", "microwave"]},
+    "parameters": {
+      "type": "object",
+      "required": ["temperature_C", "pressure_bar", "time_min", "plant_water_ratio"],
+      "properties": {
+        "temperature_C": {"type": "number", "minimum": 0, "maximum": 300},
+        "pressure_bar": {"type": "number", "minimum": 0},
+        "time_min": {"type": "number", "minimum": 1},
+        "plant_water_ratio": {"type": "number", "minimum": 0},
+        "particle_size_mm": {"type": "number"},
+        "co_flow": {"type": "string"}
+      }
+    },
+    "pretreatment": {"type": "object"},
+    "gcms_profile": {"type": "array", "items": {"type": "object"}},
+    "yield_pct": {"type": "number", "minimum": 0},
+    "aroma_preservation": {
+      "type": "object",
+      "required": ["index"],
+      "properties": {
+        "index": {"type": "number", "minimum": 0, "maximum": 1},
+        "note": {"type": "string"},
+        "method": {"type": "string"}
+      }
+    },
+    "standardization": {"type": "object"},
+    "scenarios": {"type": "object"},
+    "iteration": {"type": "integer"}
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://herbal-oil.skill/schemas/requirements.schema.json",
+  "title": "Requirements",
+  "description": "Output of the gather-requirements agent (Step 1).",
+  "type": "object",
+  "required": ["object", "analysis_type", "language"],
+  "additionalProperties": false,
+  "properties": {
+    "object": {"type": "string", "minLength": 1, "description": "Object of analysis, e.g. 'lavender essential-oil extraction'."},
+    "scope": {"type": "string", "description": "lab | pilot | industrial scale."},
+    "timeframe": {"type": "string"},
+    "available_inputs": {"type": "array", "items": {"type": "string"}},
+    "target_audience": {"type": "string"},
+    "language": {"type": "string", "enum": ["en", "vi"]},
+    "analysis_type": {"type": "string", "enum": ["combined", "yield", "aroma", "feasibility", "comparison"]},
+    "assumptions": {"type": "array", "items": {"type": "string"}}
+  }
+}

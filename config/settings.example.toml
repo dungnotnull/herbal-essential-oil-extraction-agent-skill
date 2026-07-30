@@ -1,0 +1,34 @@
+# herbal-oil runtime configuration (TOML).
+# Copy to settings.toml and adjust, or rely on environment variables.
+[herbal_oil]
+log_level = "INFO"
+
+[herbal_oil.llm]
+provider = "claude"
+model = "claude-sonnet-4-5"
+temperature = 0.2
+max_tokens = 4096
+timeout_seconds = 60
+max_retries = 3
+fallback_model = "claude-haiku-4-5"
+
+[herbal_oil.features]
+enable_cot_router = true
+enable_structured_logging = true
+enable_quality_gates = true
+enable_degradation_banner = true
+enable_knowledge_crawl = true
+enable_web_tools = true
+enable_cache = true
+dry_run = false
+
+[herbal_oil.pipeline]
+max_steps = 6
+gate_retry_limit = 2
+degradation_levels = 5
+context_token_budget = 180000
+context_reserve_tokens = 8000
+
+[herbal_oil.knowledge]
+max_results_per_source = 10
+max_new_entries_per_run = 20

@@ -1,0 +1,8 @@
+# Core runtime dependencies (the herbal-oil runtime itself is pure stdlib;
+# only the tools/knowledge_updater.py crawl pipeline needs these).
+requests>=2.31.0
+feedparser>=6.0.10
+python-dateutil>=2.8.2
+
+# Optional: only needed for advanced crawling (heavy).
+# crawl4ai>=0.3.0

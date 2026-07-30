@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://herbal-oil.skill/schemas/tool_schemas.json",
+  "title": "ToolSchemas",
+  "description": "Aggregated OpenAI-style function descriptors for every registered tool.",
+  "type": "object",
+  "properties": {
+    "web_search": {"type": "object"},
+    "web_fetch": {"type": "object"},
+    "knowledge_query": {"type": "object"},
+    "gcms_profile": {"type": "object"},
+    "yield_estimator": {"type": "object"},
+    "knowledge_append": {"type": "object"}
+  }
+}

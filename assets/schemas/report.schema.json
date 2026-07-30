@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://herbal-oil.skill/schemas/report.schema.json",
+  "title": "PipelineReport",
+  "description": "Top-level Markdown report envelope produced by the runner.",
+  "type": "object",
+  "required": ["ok", "report", "state", "decision"],
+  "additionalProperties": false,
+  "properties": {
+    "ok": {"type": "boolean"},
+    "report": {"type": "string"},
+    "error": {"type": ["string", "null"]},
+    "decision": {
+      "type": "object",
+      "required": ["plan", "intent"],
+      "properties": {
+        "plan": {"type": "array", "items": {"type": "string"}},
+        "intent": {"type": "string"},
+        "repeats": {"type": "object"},
+        "skipped": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "state": {"type": "object"}
+  }
+}
